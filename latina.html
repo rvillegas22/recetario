@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocina Latina - Mis Recetas</title>
+    <link rel="stylesheet" href="ESTILSO RECETARIO.css">
+    <style>
+    .subcategory-button {
+        display: block;
+        width: 90%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 16px;
+        font-size: 1.4em;
+        background-color: #ff6600;
+        color: white;
+        text-align: center;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .subcategory-button:hover {
+        background-color: #e65c00;
+    }
+</style>
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Cocina Latina</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="asiatica.html">Asiática</a></li>
+                <li><a href="latina.html">Latina</a></li>
+                <li><a href="americana.html">Americana</a></li>
+                <li><a href="mediterranea.html">Mediterránea</a></li>
+                <li><a href="africana.html">Africana</a></li>
+                <li><a href="postres.html">Postres</a></li>
+                <li><a href="masas.html">Masas</a></li>
+                <li><a href="salsas.html">Salsas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        <h2>Recetas Latinas</h2>
+        <p>Selecciona una categoría:</p>
+
+        <button class="subcategory-button" data-section="tacos">Tacos</button>
+<div id="tacos" class="subcategory-section recipes-list">
+    <div class="recipe"><a href="tacos-coliflor.html"><h3>Tacos de Coliflor</h3></a></div>
+    <div class="recipe"><a href="tacos-verdura-mango.html"><h3>Tacos de Verdura con Salsa de Mango</h3></a></div>
+    <div class="recipe" data-ingredientes="atún aguacate pepino pimiento tortillas soja lima cilantro sal pimienta">
+  <a href="tacos-atun-aguacate.html"><h3>Tacos de Atún y Aguacate</h3></a>
+</div>
+    <div class="recipe"><a href="tacos-champinon-tahini.html"><h3>Tacos de Champiñón con Salsa Tahini</h3></a></div>
+    <div class="recipe"><a href="tacos-pescado-yogur.html"><h3>Tacos de Pescado con Salsa de Yogur</h3></a></div>
+    <div class="recipe"><a href="tacos-calabacin-tomate.html"><h3>Tacos de Calabacín con Salsa de Tomate</h3></a></div>
+    <div class="recipe"><a href="tacos-berenjena-yogur-menta.html"><h3>Tacos de Berenjena con Salsa de Yogur y Menta</h3></a></div>
+</div>
+
+<button class="subcategory-button" data-section="tequenos">Tequeños</button>
+<div id="tequenos" class="subcategory-section recipes-list">
+    <div class="recipe"><a href="tequenos.html"><h3>Tequeños</h3></a></div>
+</div>
+
+<button class="subcategory-button" data-section="arepas">Arepas</button>
+<div id="arepas" class="subcategory-section recipes-list">
+    <div class="recipe"><a href="arepas.html"><h3>Arepas</h3></a></div>
+</div>
+<div style="text-align: center; margin: 30px auto;">
+    <form id="searchForm" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <input type="text" id="searchInput" placeholder="Busca un ingrediente..." 
+               style="padding: 10px; width: 60%; max-width: 400px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em;">
+        <button type="submit" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px; font-size: 1em; cursor: pointer;">
+            Buscar
+        </button>
+    </form>
+</div>
+
+<!-- Script mejorado con botón -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+
+        function filtrarRecetas() {
+            const filter = searchInput.value.toLowerCase();
+            const sections = document.querySelectorAll('.subcategory-section');
+            const buttons = document.querySelectorAll('.subcategory-button');
+
+            sections.forEach((section, index) => {
+                const recipes = section.querySelectorAll('.recipe');
+                let matchFound = false;
+
+                recipes.forEach(recipe => {
+                    const ingredientes = recipe.getAttribute('data-ingredientes') || "";
+                    if (ingredientes.toLowerCase().includes(filter)) {
+                        recipe.style.display = '';
+                        matchFound = true;
+                    } else {
+                        recipe.style.display = 'none';
+                    }
+                });
+
+                section.style.display = matchFound ? 'block' : 'none';
+                buttons[index].style.display = matchFound ? 'block' : 'none';
+            });
+        }
+
+        searchForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            filtrarRecetas();
+        });
+    });
+</script>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Mis Recetas. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Ocultar todas las secciones al cargar la página
+        document.querySelectorAll('.subcategory-section').forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Alternar visibilidad al hacer clic
+        document.querySelectorAll('.subcategory-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                section.style.display = (section.style.display === 'none') ? 'block' : 'none';
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
+

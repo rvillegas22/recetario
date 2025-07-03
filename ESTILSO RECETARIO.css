@@ -1,0 +1,269 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo de la página y colores */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ffcc00; /* Color amarillo para el header */
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos del main */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Estilo de la sección de categorías */
+.category-section {
+    margin-top: 40px;
+}
+
+.category-section h3 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+/* Estilo de las categorías */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 0 10px;
+}
+
+.category {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.category a {
+    display: block;
+    position: relative;
+    color: #333;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4; /* Baja opacidad de la imagen */
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.category h4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: white;
+    z-index: 1;
+}
+
+.category p {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.category:hover {
+    transform: translateY(-10px);
+}
+
+.category:hover img {
+    opacity: 0.7; /* Opacidad aumenta al pasar el ratón */
+}
+
+/* Footer */
+footer {
+    background-color: #ffcc00;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .category h4 {
+        font-size: 1.8em;
+    }
+
+    .category p {
+        font-size: 1em;
+    }
+}
+/* Estilos para la lista de recetas */
+.recipes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipe {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.recipe h3 {
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.recipe p {
+    margin-top: 10px;
+    color: #666;
+}
+
+.recipe:hover {
+    transform: scale(1.05);
+}
+
+.recipe a {
+    text-decoration: none;
+    color: inherit;
+}
+/* Estilos para la receta */
+.recipe-details {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-details p {
+    margin: 5px 0;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #ff6600;  /* Color naranja para los encabezados */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+ul li {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Estilos para las instrucciones */
+.instructions-section {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.instructions-section p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Botón de volver */
+.back-button {
+    display: inline-block;
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-button:hover {
+    background-color: #e65c00;
+}
